@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>{{ movie.title }}</h1>
+  <h2>{{ movie.release_date | date }}</h2>
+  <img [src]="getImageUrl(movie.backdrop_path)" alt="Backdrop">
+  <p>{{ movie.overview }}</p>
+  <img [src]="getImageUrl(movie.poster_path)" alt="Poster">
+</ion-content>

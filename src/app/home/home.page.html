@@ -1,12 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Home</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="getRandomMovie()">Random</ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-searchbar (ionChange)="getMovies($event.target.value)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content>
+  <ion-list>
+    <ion-list-header>Results</ion-list-header>
+    <ion-item *ngIf="!(movies | async)?.length">No Results</ion-item>
+    <ion-item
+      *ngFor="let movie of (movies | async)"
+      (click)="showDetails(movie)">
+      {{ movie.title }}
+    </ion-item>
+  </ion-list>
 </ion-content>
