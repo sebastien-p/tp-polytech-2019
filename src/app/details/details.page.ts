@@ -12,7 +12,7 @@ export class DetailsPage {
   movie: Movie;
 
   constructor(
-    private readonly router: Router
+    router: Router
   ) {
     this.movie = router.getCurrentNavigation().extras.state as Movie;
   }
